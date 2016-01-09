@@ -4,20 +4,22 @@ var $btnNewGame;
 var $tower1;
 var $tower2;
 var $tower3;
-var gameSize = 2;
+var gameSize;
 var minMoves;
 var $selectedTower = null;
 var isRunning = false;
-var moves = 0;
+var moves;
 var $movesText;
 var $newGame;
 var $gameArea;
 var $towers;
 var win = new Audio('win.mp3');
+
 $(document).ready(init());
 
 $btnNewGame.click(newGame);
 $towers.click(towerClickHandler);
+
 $newGame.change(function(){
   if($newGame.val() !== gameSize){
     newGame()
