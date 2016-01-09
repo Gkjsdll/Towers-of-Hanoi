@@ -81,7 +81,7 @@ function checkMove($origin, $destination){
   if($destinationDisc === [])
     moveDisc($origin, $destination.find('#discContainer'));
   else{
-    if($destinationDisc.attr('size') < $originDisc.attr('size')) alert("You cannot move a disc on top of a smaller disc");
+    if($destinationDisc.data('size') < $originDisc.data('size')) alert("You cannot move a disc on top of a smaller disc");
     else moveDisc($originDisc, $destination);
   }
 };
@@ -128,7 +128,7 @@ function newGame(){
       var discSize = Number(gameSize) + 1 - i;
       var discMargin = (248-(64+12*(gameSize-i)))/2;
       var $disc = $('<div>').addClass('disc')
-      .attr('size', discSize)
+      .data('size', discSize)
       .css("width", (64+12*(gameSize-i)))
       .css("margin", "0px "+discMargin+"px 0px "+discMargin+"px");
       discs.push($disc);
