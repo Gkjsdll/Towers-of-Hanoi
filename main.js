@@ -13,6 +13,7 @@ var $movesText;
 var $newGame;
 var $gameArea;
 var $towers;
+var win = new Audio('win.mp3');
 $(document).ready(init());
 
 $btnNewGame.click(newGame);
@@ -82,6 +83,7 @@ function writeMoves(){
 function checkWin(){
   if($tower1.children().length === 0 && ($tower2.children().length === 0 || $tower3.children().length === 0)){
     isRunning = false;
+    win.play();
     if(moves === minMoves){
       alert('You won with the minimum number of moves!');
     }
