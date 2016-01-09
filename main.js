@@ -8,7 +8,6 @@ var gameSize = 2;
 var minMoves;
 var $selectedTower = null;
 var isRunning = false;
-var $minMoves;
 var moves = 0;
 var $movesText;
 var $newGame;
@@ -83,7 +82,13 @@ function writeMoves(){
 function checkWin(){
   if($tower1.children().length === 0 && ($tower2.children().length === 0 || $tower3.children().length === 0)){
     isRunning = false;
-    alert('You win!');
+    if(moves === minMoves){
+      alert('You won with the minimum number of moves!');
+    }
+    else{
+      console.log(moves-minMoves);
+      alert('You win with only '+(moves-minMoves)+' unnecessary moves!');
+    }
   }
 };
 
@@ -96,8 +101,8 @@ function newGame(){
     alert("Please enter a value between 2 and 11 (inclusive)");
   }
   else{
-    $minMoves = Math.pow(2, gameSize) - 1;
-    $('#minMoves').text("Minimum Moves to Win: "+$minMoves);
+    minMoves = Math.pow(2, gameSize) - 1;
+    $('#minMoves').text("Minimum Moves to Win: "+minMoves);
     $('#moves').text('');
     $movesText.text("Your Moves: "+moves);
     for(var i = 1; i <= gameSize; i++){
