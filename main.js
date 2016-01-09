@@ -116,7 +116,7 @@ function checkWin(){
 
 function newGame(){
   $('.disc').remove();
-  var $discs = [];
+  var discs = [];
   isRunning = true;
   gameSize = Math.floor($('#gameSize').val());
   moves = 0;
@@ -134,9 +134,9 @@ function newGame(){
       .attr('size', discSize)
       .css("width", (64+12*(gameSize-i)))
       .css("margin", "0px "+discMargin+"px 0px "+discMargin+"px");
-      $discs.push($disc);
+      discs.push($disc);
     }
-    $tower1.append($discs);
+    $tower1.append(discs);
   }
 };
 
