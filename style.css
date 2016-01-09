@@ -12,6 +12,7 @@ body {
   -webkit-transform: rotate(180deg); /* Safari */
   transform: rotate(180deg);
   text-align: center;
+  background-color: #fff3cc;
 }
 
 .tower {
@@ -25,41 +26,46 @@ body {
 
 .disc {
   height: 50px;
-  background-color: red;
-  border: 1px solid black;
+  background-color: #006bf7;
+  border: 2px solid black;
   display: inline-block;
   z-index: 10;
   position: relative;
+  border-radius: 12px;
 }
 
 .towerBase {
   height: 18px;
   width: 221px;
-  background-color: black;
+  background-color: white;
   border: 2px solid black;
   margin: 0px px 0px 0px;
   z-index: 1;
   left: 10.5px;
   position: absolute;
   display:inline-block;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .towerStem {
   position: absolute;
   height: 610px;
   top: 20px;
-  left: 118px;
-  background-color: black;
+  left: 117px;
+  background-color: white;
   width: 12px;
   border: 2px solid black;
   border-top: none;
   display: inline-block;
   margin: 0px 0px 0px 0px;
   z-index: 2;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .discContainer{
-  top: 23px;
+  top: 22px;
   position: absolute;
   height: 100%;
   width: 248px

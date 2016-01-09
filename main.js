@@ -1,3 +1,5 @@
+'use strict';
+
 var $btnNewGame;
 var $tower1;
 var $tower2;
@@ -6,14 +8,25 @@ var gameSize = 2;
 var minMoves;
 var $selectedTower = null;
 var isRunning = false;
-
+var $minMoves;
+var moves = 0;
+var $movesText;
+var $newGame;
+var $gameArea;
+var $towers;
 $(document).ready(init());
 
 $btnNewGame.click(newGame);
 $towers.click(towerClickHandler);
+$newGame.change(function(){
+  if($newGame.val() !== gameSize){
+    newGame()
+  }
+});
 
 function init(){
   $btnNewGame = $('#newGame');
+  $newGame = $('#gameSize');
   $tower1 = $('#tower1Discs');
   $tower2 = $('#tower2Discs');
   $tower3 = $('#tower3Discs');
@@ -21,6 +34,8 @@ function init(){
   $towers = $('.tower');
   $tower1.children('.towerStem').css("left", "628px");
   $tower2.children('.towerStem').css("left", "376px");
+  $movesText = $('#moves');
+  console.log($movesText);
   newGame();
 };
 
@@ -44,10 +59,8 @@ function towerClickHandler(){
 
 function checkMove($origin, $destination){
   var $originDisc;
-
   $originDisc = $origin.find('div:nth-child('+$origin.children().length+')');
   var $destinationDisc = $destination.find('div').last();
-
   if($destinationDisc === [])
     moveDisc($origin, $destination.find('#discContainer'));
   else{
@@ -60,9 +73,14 @@ function moveDisc($origin, $destination){
   $origin.remove();
   $destination.append($origin);
   deselect();
+  moves++;
+  writeMoves();
   checkWin();
 };
 
+function writeMoves(){
+  $movesText.text("Your Moves: "+moves);
+}
 function checkWin(){
   if($tower1.children().length === 0 && ($tower2.children().length === 0 || $tower3.children().length === 0)){
     isRunning = false;
@@ -74,19 +92,22 @@ function newGame(){
   $('.disc').remove();
   isRunning = true;
   gameSize = $('#gameSize').val();
+  moves = 0;
   if(gameSize < 3 || gameSize > 11){
     alert("Please enter a value between 2 and 11 (inclusive)");
   }
   else{
-    minMoves = Math.pow(2, gameSize) - 1;
-    console.log("Minimum Moves: ", minMoves);
+    $minMoves = Math.pow(2, gameSize) - 1;
+    $('#minMoves').text("Minimum Moves to Win: "+$minMoves);
+    $('#moves').text('');
+    $movesText.text("Your Moves: "+moves);
     for(var i = 1; i <= gameSize; i++){
       var discSize = Number(gameSize) + 1 - i;
       var discMargin = (248-(64+12*(gameSize-i)))/2;
       var $disc = $('<div>').addClass('disc')
       .attr('size', discSize)
       .css("width", (64+12*(gameSize-i)))
-      .css("margin", "1px "+discMargin+"px 1px "+discMargin+"px");
+      .css("margin", "0px "+discMargin+"px 0px "+discMargin+"px");
       $tower1.append($disc);
     }
   }
@@ -94,10 +115,10 @@ function newGame(){
 
 function select($peg){
   $selectedTower = $peg;
-  $selectedTower.find('.pegContainer *').css('border-color','yellow');
+  $selectedTower.find('.pegContainer *').css('background-color','yellow');
 }
 
 function deselect(){
-  $selectedTower.find('.pegContainer *').css('border-color', 'black');
+  $selectedTower.find('.pegContainer *').css('background-color', 'white');
   $selectedTower = null;
 }
