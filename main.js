@@ -69,7 +69,6 @@ function checkMove($origin, $destination){
 }
 
 function moveDisc($origin, $destination){
-  $origin.remove();
   $destination.append($origin);
   deselect();
   moves++;
@@ -96,6 +95,7 @@ function checkWin(){
 
 function newGame(){
   $('.disc').remove();
+  var $discs = [];
   isRunning = true;
   gameSize = $('#gameSize').val();
   moves = 0;
@@ -114,8 +114,9 @@ function newGame(){
       .attr('size', discSize)
       .css("width", (64+12*(gameSize-i)))
       .css("margin", "0px "+discMargin+"px 0px "+discMargin+"px");
-      $tower1.append($disc);
+      $discs.push($disc);
     }
+    $tower1.append($discs);
   }
 };
 
