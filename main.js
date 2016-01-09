@@ -11,7 +11,6 @@ var isRunning = false;
 var moves;
 var $movesText;
 var $newGame;
-var $gameArea;
 var $towers;
 var win = new Audio('win.mp3');
 
@@ -32,7 +31,6 @@ function init(){
   $tower1 = $('#tower1Discs');
   $tower2 = $('#tower2Discs');
   $tower3 = $('#tower3Discs');
-  $gameArea = $('.gameArea');
   $towers = $('.tower');
   $tower1.children('.towerStem').css("left", "628px");
   $tower2.children('.towerStem').css("left", "376px");
@@ -43,7 +41,7 @@ function init(){
 function towerClickHandler(){
   if(isRunning){
     var $this = $(this);
-    var $thisContainer = $this.find('.discContainer')
+    var $thisContainer = $this.find('.discContainer');
     if($selectedTower !== null){
       if($this.attr('id') === $selectedTower.attr('id')){
         deselect()
