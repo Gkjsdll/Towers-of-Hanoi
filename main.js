@@ -29,6 +29,9 @@ $(document).keypress(function(e) {
     case 51: //3
       $tower3.click();
       break;
+    case 32:
+      newGame();
+      break;
   }
 });
 
