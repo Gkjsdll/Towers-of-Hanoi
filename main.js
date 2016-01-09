@@ -39,9 +39,7 @@ $btnNewGame.click(newGame);
 $towers.click(towerClickHandler);
 
 $newGame.change(function(){
-  if($newGame.val() !== gameSize){
     newGame();
-  }
 });
 
 function init(){
@@ -64,7 +62,7 @@ function towerClickHandler(){
     var $thisContainer = $this.find('.discContainer');
     debugger;
     if($selectedTower !== null){
-      if($this.attr('id') === $selectedTower.attr('id')){
+      if($this === $selectedTower){
         deselect();
       }
       else{
@@ -78,8 +76,7 @@ function towerClickHandler(){
 };
 
 function checkMove($origin, $destination){
-  var $originDisc;
-  $originDisc = $origin.find('div:nth-child('+$origin.children().length+')');
+  var $originDisc = $origin.find('div').last();
   var $destinationDisc = $destination.find('div').last();
   if($destinationDisc === [])
     moveDisc($origin, $destination.find('#discContainer'));
@@ -121,7 +118,7 @@ function newGame(){
   gameSize = Math.floor($('#gameSize').val());
   moves = 0;
   if(gameSize < 3 || gameSize > 11){
-    alert("Please enter a value between 2 and 11 (inclusive)");
+    alert("Please enter a value between 3 and 11 (inclusive)");
   }
   else{
     minMoves = Math.pow(2, gameSize) - 1;
