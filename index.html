@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tower of Hanoi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <label for="gameSize">Discs: </label>
+  <input id="gameSize" type="number" min='3' max='11' value='3'>
+  <button id="newGame">New Game</button>
+  <h1>Tower of Hanoi</h1>
+  <div class="gameArea">
+    <div class="tower" id="tower3" tower='2'>
+      <div class="pegContainer">
+        <div class="towerBase"></div>
+        <div class="towerStem"></div>
+      </div>
+      <div class="discContainer" id="tower3Discs"></div>
+    </div>
+    <div class="tower" id="tower2" tower='1'>
+      <div class="pegContainer">
+        <div class="towerBase"></div>
+        <div class="towerStem"></div>
+      </div>
+      <div class="discContainer" id="tower2Discs"></div>
+    </div>
+    <div class="tower" id="tower1" tower='0'>
+      <div class="pegContainer">
+        <div class="towerBase"></div>
+        <div class="towerStem"></div>
+      </div>
+      <div class="discContainer" id="tower1Discs"></div>
+    </div>
+  </div>
+  <script src='jquery-2.2.0.min.js'></script>
+  <script src='main.js'></script>
+</body>
+</html>

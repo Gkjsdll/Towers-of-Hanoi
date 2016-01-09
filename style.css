@@ -1,0 +1,71 @@
+body {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.gameArea {
+  border: 1px solid black;
+  width: 768px;
+  height: 640px;
+  margin: 0px auto;
+  -ms-transform: rotate(180deg); /* IE 9 */
+  -webkit-transform: rotate(180deg); /* Safari */
+  transform: rotate(180deg);
+  text-align: center;
+}
+
+.tower {
+  display: inline-block;
+  top: 0px;
+  width: 248px;
+  height: 100%;
+  text-align: center;
+  font-size: 0px;
+}
+
+.disc {
+  height: 50px;
+  background-color: red;
+  border: 1px solid black;
+  display: inline-block;
+  z-index: 10;
+  position: relative;
+}
+
+.towerBase {
+  height: 18px;
+  width: 221px;
+  background-color: black;
+  border: 2px solid black;
+  margin: 0px px 0px 0px;
+  z-index: 1;
+  left: 10.5px;
+  position: absolute;
+  display:inline-block;
+}
+
+.towerStem {
+  position: absolute;
+  height: 610px;
+  top: 20px;
+  left: 118px;
+  background-color: black;
+  width: 12px;
+  border: 2px solid black;
+  border-top: none;
+  display: inline-block;
+  margin: 0px 0px 0px 0px;
+  z-index: 2;
+}
+
+.discContainer{
+  top: 23px;
+  position: absolute;
+  height: 100%;
+  width: 248px
+}
+
+.pegContainer{
+  position: fixed;
+  z-index: 5;
+}
