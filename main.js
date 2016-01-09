@@ -35,7 +35,6 @@ function init(){
   $tower1.children('.towerStem').css("left", "628px");
   $tower2.children('.towerStem').css("left", "376px");
   $movesText = $('#moves');
-  console.log($movesText);
   newGame();
 };
 
