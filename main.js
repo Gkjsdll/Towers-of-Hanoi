@@ -55,6 +55,7 @@ function init(){
   $tower2.children('.towerStem').css("left", "376px");
   $movesText = $('#moves');
   newGame();
+  alert("Click or press 1, 2, or 3 to play.\nPress Space to restart.");
 };
 
 function towerClickHandler(){
