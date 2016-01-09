@@ -105,7 +105,7 @@ function newGame(){
   else{
     minMoves = Math.pow(2, gameSize) - 1;
     $('#minMoves').text("Minimum Moves to Win: "+minMoves);
-    $('#moves').text('');
+    debugger;
     $movesText.text("Your Moves: "+moves);
     for(var i = 1; i <= gameSize; i++){
       var discSize = Number(gameSize) + 1 - i;
