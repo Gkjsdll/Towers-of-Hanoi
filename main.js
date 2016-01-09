@@ -97,7 +97,7 @@ function newGame(){
   $('.disc').remove();
   var $discs = [];
   isRunning = true;
-  gameSize = $('#gameSize').val();
+  gameSize = Math.floor($('#gameSize').val());
   moves = 0;
   if(gameSize < 3 || gameSize > 11){
     alert("Please enter a value between 2 and 11 (inclusive)");
