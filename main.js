@@ -16,6 +16,22 @@ var win = new Audio('win.mp3');
 
 $(document).ready(init());
 
+$(document).keypress(function(e) {
+  var keyPressed = e.which;
+  console.log(keyPressed);
+  switch (keyPressed) {
+    case 49: //1
+      $tower1.click();
+      break;
+    case 50: //2
+      $tower2.click();
+      break;
+    case 51: //3
+      $tower3.click();
+      break;
+  }
+});
+
 $btnNewGame.click(newGame);
 $towers.click(towerClickHandler);
 
@@ -42,6 +58,7 @@ function towerClickHandler(){
   if(isRunning){
     var $this = $(this);
     var $thisContainer = $this.find('.discContainer');
+    debugger;
     if($selectedTower !== null){
       if($this.attr('id') === $selectedTower.attr('id')){
         deselect();
