@@ -21,7 +21,7 @@ $towers.click(towerClickHandler);
 
 $newGame.change(function(){
   if($newGame.val() !== gameSize){
-    newGame()
+    newGame();
   }
 });
 
@@ -44,7 +44,7 @@ function towerClickHandler(){
     var $thisContainer = $this.find('.discContainer');
     if($selectedTower !== null){
       if($this.attr('id') === $selectedTower.attr('id')){
-        deselect()
+        deselect();
       }
       else{
         checkMove($selectedTower.find('.discContainer'), $thisContainer);
@@ -54,7 +54,7 @@ function towerClickHandler(){
       select($this);
     }
   }
-}
+};
 
 function checkMove($origin, $destination){
   var $originDisc;
@@ -66,7 +66,7 @@ function checkMove($origin, $destination){
     if($destinationDisc.attr('size') < $originDisc.attr('size')) alert("You cannot move a disc on top of a smaller disc");
     else moveDisc($originDisc, $destination);
   }
-}
+};
 
 function moveDisc($origin, $destination){
   $destination.append($origin);
@@ -105,7 +105,6 @@ function newGame(){
   else{
     minMoves = Math.pow(2, gameSize) - 1;
     $('#minMoves').text("Minimum Moves to Win: "+minMoves);
-    debugger;
     $movesText.text("Your Moves: "+moves);
     for(var i = 1; i <= gameSize; i++){
       var discSize = Number(gameSize) + 1 - i;
@@ -123,9 +122,9 @@ function newGame(){
 function select($peg){
   $selectedTower = $peg;
   $selectedTower.find('.pegContainer *').css('background-color','yellow');
-}
+};
 
 function deselect(){
   $selectedTower.find('.pegContainer *').css('background-color', 'white');
   $selectedTower = null;
-}
+};
