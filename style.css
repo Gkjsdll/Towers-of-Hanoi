@@ -37,7 +37,7 @@ body {
 .towerBase {
   height: 18px;
   width: 221px;
-  background-color: white;
+  background-color: black;
   border: 2px solid black;
   margin: 0px px 0px 0px;
   z-index: 1;
@@ -53,7 +53,7 @@ body {
   height: 610px;
   top: 20px;
   left: 117px;
-  background-color: white;
+  background-color: black;
   width: 12px;
   border: 2px solid black;
   border-top: none;

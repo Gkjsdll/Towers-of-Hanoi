@@ -141,6 +141,6 @@ function select($peg){
 };
 
 function deselect(){
-  $selectedTower.find('.pegContainer *').css('background-color', 'white');
+  $selectedTower.find('.pegContainer *').css('background-color', 'black');
   $selectedTower = null;
 };
