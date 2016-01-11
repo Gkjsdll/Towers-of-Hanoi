@@ -38,9 +38,7 @@ $(document).keypress(function(e) {
 $btnNewGame.click(newGame);
 $towers.click(towerClickHandler);
 
-$newGame.change(function(){
-    newGame();
-});
+$newGame.change(newGame);
 
 function init(){
   $btnNewGame = $('#newGame');
